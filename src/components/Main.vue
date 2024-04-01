@@ -3,43 +3,45 @@
     <div style="margin-top: 10px;margin-left: 10px;margin-right: 10px;">
       <div class="slider-demo-block">
         <span class="font-background">测速地址：</span>
-        <el-button type="primary" :icon="CopyDocument" link @click="copyUrl" />
-        <el-button type="primary" :icon="Edit" link @click="EditTableVisible = true" />
+        <el-button type="primary" :icon="CopyDocument" link @click="copyUrl"/>
+        <el-button type="primary" :icon="Edit" link @click="EditTableVisible = true"/>
         <br>
         <el-select style="width: 100%;" v-model="runUrl">
           <el-option-group v-for="group in nodes" :key="group.label" :label="group.label">
-            <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value" />
+            <el-option v-for="item in group.options" :key="item.value" :label="item.label" :value="item.value"/>
           </el-option-group>
           <template #prefix>
             <el-icon>
-              <Link />
+              <Link/>
             </el-icon>
           </template>
         </el-select>
       </div>
       <div style="margin-top:20px;">
         <span class="font-background">线程数：{{ threadNum }}</span>
-        <el-slider :show-tooltip="false" :min="1" :max='64' v-model="threadNum" />
+        <el-slider :show-tooltip="false" :min="1" :max='64' v-model="threadNum"/>
       </div>
       <div style="width: 100%;height:32px;">
         <div style="float: left;">
-          <el-switch v-model="runBackground" active-text="保持后台运行" />
+          <el-switch v-model="runBackground" active-text="保持后台运行"/>
         </div>
         <div style="float: right;">
-          <el-switch v-model="autoStart" active-text="自动运行" />
+          <el-switch v-model="autoStart" active-text="自动运行"/>
         </div>
       </div>
       <div class="ItemContainer">
         <div class="showItem">
           <span class="font-background" style="font-size: larger;">总流量</span>
-          <el-text size="small" class="mx-1">{{ state.maxUse ? '/' + formatter(state.maxUse, 0, [0, 0, 0, 0, 0, 0]) : ""
-          }}</el-text>
-          <el-button type="primary" style="height: 15px;" :icon="Edit" link @click="EditMaxVisible = true" />
+          <el-text size="small" class="mx-1">{{
+              state.maxUse ? '/' + formatter(state.maxUse, 0, [0, 0, 0, 0, 0, 0]) : ""
+            }}
+          </el-text>
+          <el-button type="primary" style="height: 15px;" :icon="Edit" link @click="EditMaxVisible = true"/>
           <div class="state-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="h-15 w-15 float-right pt-3">
+                 class="h-15 w-15 float-right pt-3">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                    d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
             </svg>
           </div>
           <el-text class="font-data">{{ state.show.allUsed }}</el-text>
@@ -48,7 +50,7 @@
           <span class="font-background" style="font-size: larger;">{{ isRunning ? '实时速度' : '平均速度' }}</span>
           <el-popover placement="top-start" title="用量预测" :width="150" trigger="click">
             <template #reference>
-              <el-button type="primary" style="height: 15px;vertical-align: -2px;" :icon="Calendar" link />
+              <el-button type="primary" style="height: 15px;vertical-align: -2px;" :icon="Calendar" link/>
             </template>
             每分钟&nbsp;&nbsp;{{ state.predict.min }}
             <br>
@@ -60,9 +62,9 @@
           </el-popover>
           <div class="state-icon state-icon-main">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="h-15 w-15 float-right pt-3">
+                 class="h-15 w-15 float-right pt-3">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                d="M16.469,8.924l-2.414,2.413c-0.156,0.156-0.408,0.156-0.564,0c-0.156-0.155-0.156-0.408,0-0.563l2.414-2.414c1.175-1.175,1.175-3.087,0-4.262c-0.57-0.569-1.326-0.883-2.132-0.883s-1.562,0.313-2.132,0.883L9.227,6.511c-1.175,1.175-1.175,3.087,0,4.263c0.288,0.288,0.624,0.511,0.997,0.662c0.204,0.083,0.303,0.315,0.22,0.52c-0.171,0.422-0.643,0.17-0.52,0.22c-0.473-0.191-0.898-0.474-1.262-0.838c-1.487-1.485-1.487-3.904,0-5.391l2.414-2.413c0.72-0.72,1.678-1.117,2.696-1.117s1.976,0.396,2.696,1.117C17.955,5.02,17.955,7.438,16.469,8.924 M10.076,7.825c-0.205-0.083-0.437,0.016-0.52,0.22c-0.083,0.205,0.016,0.437,0.22,0.52c0.374,0.151,0.709,0.374,0.997,0.662c1.176,1.176,1.176,3.088,0,4.263l-2.414,2.413c-0.569,0.569-1.326,0.883-2.131,0.883s-1.562-0.313-2.132-0.883c-1.175-1.175-1.175-3.087,0-4.262L6.51,9.227c0.156-0.155,0.156-0.408,0-0.564c-0.156-0.156-0.408-0.156-0.564,0l-2.414,2.414c-1.487,1.485-1.487,3.904,0,5.391c0.72,0.72,1.678,1.116,2.696,1.116s1.976-0.396,2.696-1.116l2.414-2.413c1.487-1.486,1.487-3.905,0-5.392C10.974,8.298,10.55,8.017,10.076,7.825">
+                    d="M16.469,8.924l-2.414,2.413c-0.156,0.156-0.408,0.156-0.564,0c-0.156-0.155-0.156-0.408,0-0.563l2.414-2.414c1.175-1.175,1.175-3.087,0-4.262c-0.57-0.569-1.326-0.883-2.132-0.883s-1.562,0.313-2.132,0.883L9.227,6.511c-1.175,1.175-1.175,3.087,0,4.263c0.288,0.288,0.624,0.511,0.997,0.662c0.204,0.083,0.303,0.315,0.22,0.52c-0.171,0.422-0.643,0.17-0.52,0.22c-0.473-0.191-0.898-0.474-1.262-0.838c-1.487-1.485-1.487-3.904,0-5.391l2.414-2.413c0.72-0.72,1.678-1.117,2.696-1.117s1.976,0.396,2.696,1.117C17.955,5.02,17.955,7.438,16.469,8.924 M10.076,7.825c-0.205-0.083-0.437,0.016-0.52,0.22c-0.083,0.205,0.016,0.437,0.22,0.52c0.374,0.151,0.709,0.374,0.997,0.662c1.176,1.176,1.176,3.088,0,4.263l-2.414,2.413c-0.569,0.569-1.326,0.883-2.131,0.883s-1.562-0.313-2.132-0.883c-1.175-1.175-1.175-3.087,0-4.262L6.51,9.227c0.156-0.155,0.156-0.408,0-0.564c-0.156-0.156-0.408-0.156-0.564,0l-2.414,2.414c-1.487,1.485-1.487,3.904,0,5.391c0.72,0.72,1.678,1.116,2.696,1.116s1.976-0.396,2.696-1.116l2.414-2.413c1.487-1.486,1.487-3.905,0-5.392C10.974,8.298,10.55,8.017,10.076,7.825">
               </path>
             </svg>
           </div>
@@ -70,13 +72,16 @@
         </div>
         <div class="showItem">
           <span class="font-background" style="font-size: larger;">带宽</span>
-          <el-text size="small" class="mx-1">{{ state.maxSpeed ? '/' + formatter(state.maxSpeed, 2, [0, 0, 0, 0, 0, 0]) : ""
-          }}</el-text>
-          <el-button type="primary" style="height: 15px;" :icon="Edit" link @click="EditSpeedVisible = true" />
+          <el-text size="small" class="mx-1">{{
+              state.maxSpeed ? '/' + formatter(state.maxSpeed, 2, [0, 0, 0, 0, 0, 0]) : ""
+            }}
+          </el-text>
+          <el-button type="primary" style="height: 15px;" :icon="Edit" link @click="EditSpeedVisible = true"/>
           <div class="state-icon">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-              class="h-15 w-15 float-right pt-3">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                 class="h-15 w-15 float-right pt-3">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
           <el-text class="font-data">{{ state.show.speedBit }}</el-text>
@@ -86,64 +91,67 @@
       <div style="width: fit-content;display: block;margin-top:2ch;margin-left: auto;margin-right: auto;">
         <a class="button" v-if="!isRunning && !state.isChecking" @click="tryStart">
           <svg t="1694957757562" class="svg-icon"
-            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4036" width="200" height="200">
+               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4036" width="200"
+               height="200">
             <path
-              d="M823.8 603.5l-501.2 336c-50.7 34-119.3 20.4-153.2-30.2-12.2-18.2-18.7-39.6-18.7-61.5v-672c0-61 49.5-110.4 110.4-110.4 21.9 0 43.3 6.5 61.5 18.7l501.1 336c50.7 34 64.2 102.6 30.2 153.2-7.8 11.9-18.1 22.2-30.1 30.2z m0 0"
-              p-id="4037"></path>
+                d="M823.8 603.5l-501.2 336c-50.7 34-119.3 20.4-153.2-30.2-12.2-18.2-18.7-39.6-18.7-61.5v-672c0-61 49.5-110.4 110.4-110.4 21.9 0 43.3 6.5 61.5 18.7l501.1 336c50.7 34 64.2 102.6 30.2 153.2-7.8 11.9-18.1 22.2-30.1 30.2z m0 0"
+                p-id="4037"></path>
           </svg>
         </a>
         <a class="button" v-if="state.isChecking">
           <el-icon :size="60" class="is-loading el-icon-loading">
-            <Loading />
+            <Loading/>
           </el-icon>
         </a>
         <a class="button" v-if="isRunning && !state.isChecking" @click="isRunning = false">
-          <svg t="1694958268344" fill="white" style="width: 80px;margin-top: -30px;" viewBox="0 0 1024 1024" version="1.1"
-            xmlns="http://www.w3.org/2000/svg" p-id="7667" width="200" height="200">
+          <svg t="1694958268344" fill="white" style="width: 80px;margin-top: -30px;" viewBox="0 0 1024 1024"
+               version="1.1"
+               xmlns="http://www.w3.org/2000/svg" p-id="7667" width="200" height="200">
             <path
-              d="M352 768c-17.664 0-32-14.304-32-32V288c0-17.664 14.336-32 32-32s32 14.336 32 32v448c0 17.696-14.336 32-32 32zM672 768c-17.696 0-32-14.304-32-32V288c0-17.664 14.304-32 32-32s32 14.336 32 32v448c0 17.696-14.304 32-32 32z"
-              p-id="7668"></path>
+                d="M352 768c-17.664 0-32-14.304-32-32V288c0-17.664 14.336-32 32-32s32 14.336 32 32v448c0 17.696-14.336 32-32 32zM672 768c-17.696 0-32-14.304-32-32V288c0-17.664 14.304-32 32-32s32 14.336 32 32v448c0 17.696-14.304 32-32 32z"
+                p-id="7668"></path>
           </svg>
         </a>
       </div>
       <el-button style="float: left;margin-top: -20px;margin-right: 3px" type="primary" :icon="Histogram" link
-        @click="showMark.show = true" />
-        <el-button style="float: left;margin-top: -20px;margin-left: 39px" type="primary" :icon="FullScreen" link
-        @click="isFullScreen = true" />
+                 @click="showMark.show = true"/>
+      <el-button style="float: left;margin-top: -20px;margin-left: 39px" type="primary" :icon="FullScreen" link
+                 @click="isFullScreen = true"/>
       <el-button style="float: right;margin-top: -20px;margin-right: 3px" type="primary" :icon="TrendCharts" link
-        v-if="!chartShow" @click="chartShow = true" />
+                 v-if="!chartShow" @click="chartShow = true"/>
       <el-button style="float: right;margin-top: -20px;margin-right: 3px" type="primary" :icon="Hide" link
-        v-if="chartShow" @click="chartShow = false" />
+                 v-if="chartShow" @click="chartShow = false"/>
       <div v-show="chartShow" ref="chartContainer" style="width: 100%; height: 400px;"></div>
     </div>
   </div>
 
   <el-dialog style="width: 90%;max-width: 700px;" v-model="EditTableVisible" title="自定义地址">
     <el-table v-if="customNodes.length" :data="customNodes" style="width: 100%" max-height="300">
-      <el-table-column prop="label" label="名称" width="100" />
-      <el-table-column prop="value" label="URL" />
+      <el-table-column prop="label" label="名称" width="100"/>
+      <el-table-column prop="value" label="URL"/>
       <el-table-column fixed="right" label="" width="50">
         <template #default="scope">
-          <el-button type="danger" link :icon="Delete" @click.prevent="customNodes.splice(scope.$index, 1)" />
+          <el-button type="danger" link :icon="Delete" @click.prevent="customNodes.splice(scope.$index, 1)"/>
         </template>
       </el-table-column>
     </el-table>
-    <el-empty v-else description="没有自定义地址" />
+    <el-empty v-else description="没有自定义地址"/>
     <el-button class="mt-4" style="width: 100%" @click="addTableVisible = true;">添加地址</el-button>
   </el-dialog>
 
   <el-dialog style="width: 90%;max-width: 700px;" v-model="addTableVisible" title="添加链接">
     <el-form :model="addForm">
       <el-form-item label="名称:" label-width='50px'>
-        <el-input v-model="addForm.label" autocomplete="off" />
+        <el-input v-model="addForm.label" autocomplete="off"/>
       </el-form-item>
       <el-form-item label="url:" label-width='50px'>
         <el-input v-model="addForm.value" autocomplete="off">
           <template #suffix>
             <el-icon v-if="urlParser(addForm.value)">
-              <CircleCheck />
+              <CircleCheck/>
             </el-icon>
-          </template>>
+          </template>
+          >
         </el-input>
       </el-form-item>
     </el-form>
@@ -165,9 +173,9 @@
       <span class="dialog-footer">
         <el-button @click="addTableVisible = false">取消</el-button>
         <el-button type="primary" :disabled="!urlParser(addForm.value) || !addForm.label || addForm.checking"
-          @click="addNode()">确认
+                   @click="addNode()">确认
           <el-icon v-if="addForm.checking" class="is-loading">
-            <Loading />
+            <Loading/>
           </el-icon>
         </el-button>
       </span>
@@ -177,12 +185,12 @@
     <el-form>
       <div class="mt-4">
         <el-input type="number" min='1' v-model="maxUseInput.num" autocomplete="off" placeholder="留空则无上限"
-          class="input-with-select">
+                  class="input-with-select">
           <template #append>
             <el-select v-model="maxUseInput.type" placeholder="Select" style="width: 65px">
-              <el-option label="MB" value="MB" />
-              <el-option label="GB" value="GB" />
-              <el-option label="TB" value="TB" />
+              <el-option label="MB" value="MB"/>
+              <el-option label="GB" value="GB"/>
+              <el-option label="TB" value="TB"/>
             </el-select>
           </template>
         </el-input>
@@ -201,11 +209,11 @@
     <el-form>
       <div class="mt-4">
         <el-input type="number" min='1' v-model="maxSpeedInput.num" autocomplete="off" placeholder="留空则无上限"
-          class="input-with-select">
+                  class="input-with-select">
           <template #append>
             <el-select v-model="maxSpeedInput.type" placeholder="Select" style="width: 80px">
-              <el-option label="Mbps" value="Mbps" />
-              <el-option label="Gbps" value="Gbps" />
+              <el-option label="Mbps" value="Mbps"/>
+              <el-option label="Gbps" value="Gbps"/>
             </el-select>
           </template>
         </el-input>
@@ -224,36 +232,50 @@
       </span>
     </template>
   </el-dialog>
-  <MarkUI :show="showMark" :loginInfo="loginInfo" />
-  <audio v-if="isMobile && !isIOS && !isMiuiBrowser && runBackground" @canplay="() => { if (isRunning) audioDom.play() }"
-    @pause="() => { if (runBackground) isRunning = false }" @play="isRunning = true" controls loop ref="audioDom"
-    style="display:none">
+  <MarkUI :show="showMark" :loginInfo="loginInfo"/>
+  <audio v-if="isMobile && !isIOS && !isMiuiBrowser && runBackground"
+         @canplay="() => { if (isRunning) audioDom.play() }"
+         @pause="() => { if (runBackground) isRunning = false }" @play="isRunning = true" controls loop ref="audioDom"
+         style="display:none">
     <source :src="andoridSound" type="audio/mpeg">
   </audio>
   <audio v-if="isIOS && runBackground" @canplay="() => { if (isRunning) audioDom.play() }"
-    @pause="() => { if (runBackground) isRunning = false }" @play="isRunning = true" controls loop ref="audioDom"
-    style="display:none">
+         @pause="() => { if (runBackground) isRunning = false }" @play="isRunning = true" controls loop ref="audioDom"
+         style="display:none">
     <source :src="iosSound" type="audio/mpeg">
   </audio>
-  <FullScreenUI v-model="isFullScreen" :isRunning="isRunning" :state="state" />
+  <FullScreenUI v-model="isFullScreen" :isRunning="isRunning" :state="state"/>
 </template>
 
 <script lang="ts" setup>
-import type { EChartsType } from "echarts";
+import type {EChartsType} from "echarts";
 import iosSound from "../assets/ios.mp3";
 import andoridSound from "../assets/android.mp3";
+
 const props = defineProps({
   isVisible: Boolean
 })
-import { ElMessage } from 'element-plus'
+import {ElMessage} from 'element-plus'
 import nodesJson from "../assets/nodes.json"
-import { Link, Edit, Delete, CircleCheck, Loading, CopyDocument, TrendCharts, Hide, Histogram, Calendar,FullScreen } from '@element-plus/icons-vue'
-import { ref, watch,watchEffect, type Ref, reactive } from 'vue'
-import { toClipboard } from '@soerenmartius/vue3-clipboard'
+import {
+  Link,
+  Edit,
+  Delete,
+  CircleCheck,
+  Loading,
+  CopyDocument,
+  TrendCharts,
+  Hide,
+  Histogram,
+  Calendar,
+  FullScreen
+} from '@element-plus/icons-vue'
+import {ref, watch, watchEffect, type Ref, reactive} from 'vue'
+import {toClipboard} from '@soerenmartius/vue3-clipboard'
 import MarkUI from './Mark.vue'
 import FullScreenUI from './FullScreen.vue'
 
-const showMark = ref({ show: false })
+const showMark = ref({show: false})
 const customNodes = reactive(localStorage.customNodes ? JSON.parse(localStorage.customNodes) : [])
 const OnlineNodes: {
   label: string;
@@ -262,17 +284,17 @@ const OnlineNodes: {
     label: string;
   }[];
 }[] = []
-for(let groupName in nodesJson) {
-  const group=nodesJson[groupName as keyof typeof nodesJson]
+for (let groupName in nodesJson) {
+  const group = nodesJson[groupName as keyof typeof nodesJson]
   const temp: {
     label: string;
     options: {
       value: string;
       label: string;
     }[];
-  }={"label":groupName,options:[]}
-  for(let node in group) {
-    temp.options.push({"value":group[node as keyof typeof group],"label":node})
+  } = {"label": groupName, options: []}
+  for (let node in group) {
+    temp.options.push({"value": group[node as keyof typeof group], "label": node})
   }
   OnlineNodes.push(temp)
 }
@@ -284,14 +306,14 @@ const nodes: Ref<{
   }[];
 }[]> = ref(OnlineNodes)
 if (customNodes.length) {
-  nodes.value = [{ "label": "自定义", "options": customNodes}].concat(OnlineNodes)
+  nodes.value = [{"label": "自定义", "options": customNodes}].concat(OnlineNodes)
 }
 watch(customNodes, async (newState, oldState) => {
   if (customNodes.length) {
-    nodes.value = [{ "label": "自定义", "options": customNodes }].concat(OnlineNodes)
+    nodes.value = [{"label": "自定义", "options": customNodes}].concat(OnlineNodes)
   } else nodes.value = OnlineNodes
   localStorage.customNodes = JSON.stringify(newState)
-}, { deep: true })
+}, {deep: true})
 
 const state = reactive({
   show: {
@@ -318,7 +340,7 @@ const state = reactive({
 })
 const isRunning = ref(false)
 const isFullScreen = ref(false)
-const loginInfo = reactive({ AccessToken: localStorage.AccessToken ? localStorage.AccessToken : "" })
+const loginInfo = reactive({AccessToken: localStorage.AccessToken ? localStorage.AccessToken : ""})
 const chartShow = ref(localStorage.chartShow ? localStorage.chartShow === 'true' : false)
 const threadNum = ref(localStorage.threadNum ? Number(localStorage.threadNum) : 8)
 const runBackground = ref(localStorage.runBackground ? localStorage.runBackground === 'true' : false)
@@ -334,11 +356,11 @@ onMounted(() => {
   //     message: '本站将不再内置大厂链接 建议使用自定义节点功能',
   //   })
   // },500)
-  autoStart.value&&tryStart();
+  autoStart.value && tryStart();
 })
 
 const tryStart = async () => {
-  if(runUrl.value.startsWith("NetworkPanelApi://")) {
+  if (runUrl.value.startsWith("NetworkPanelApi://")) {
     isRunning.value = true
     return
   }
@@ -354,23 +376,28 @@ const tryStart = async () => {
     isRunning.value = true
   }
 }
-const block_list=["ljxnet.cn","netart.cn",".gov.cn"]
+const block_list = ["ljxnet.cn", "netart.cn", ".gov.cn"]
 const checkUrl = async (url: string) => {
   var status = true
   let info = ''
   try {
     let structUrl = new URL(url)
-    if (block_list.some((i)=>structUrl.host.endsWith(i))) {
+    if (block_list.some((i) => structUrl.host.endsWith(i))) {
       throw '你不对劲，我要拿小本本把你记下来然后交给警察蜀黍！'
     }
 
     const controller = new AbortController();
     const id = setTimeout(() => controller.abort(), 5000);
-    const response = await fetch(url, { cache: "no-store", mode: 'cors', referrerPolicy: 'no-referrer' ,signal: controller.signal})
+    const response = await fetch(url, {
+      cache: "no-store",
+      mode: 'cors',
+      referrerPolicy: 'no-referrer',
+      signal: controller.signal
+    })
     if (response.status == 404) throw "资源响应异常" + response.status
     if (!response.body) throw "资源响应异常 Nobody"
     const reader = response.body.getReader();
-    const { value, done } = await reader.read();
+    const {value, done} = await reader.read();
     if (!value || value.length <= 0) throw "资源响应异常 Nobody";
     reader.cancel()
   } catch (err) {
@@ -385,31 +412,36 @@ const checkUrl = async (url: string) => {
 }
 
 let solvedRunUrl = ''
-async function apiSolver(){
-  if(!runUrl.value.startsWith("NetworkPanelApi://")){
+
+async function apiSolver() {
+  if (!runUrl.value.startsWith("NetworkPanelApi://")) {
     solvedRunUrl = runUrl.value
     return
   }
-  let host=runUrl.value.split("NetworkPanelApi://")[1]
-  let resp:any = await fetch(import.meta.env.VITE_API_URL+"url.ajax?"+new URLSearchParams({host:host,cache:window.location.host}), {
-      mode: "cors",
-      redirect: "follow",
-      referrerPolicy: "no-referrer"
-    });
+  let host = runUrl.value.split("NetworkPanelApi://")[1]
+  let resp: any = await fetch(import.meta.env.VITE_API_URL + "url.ajax?" + new URLSearchParams({
+    host: host,
+    cache: window.location.host
+  }), {
+    mode: "cors",
+    redirect: "follow",
+    referrerPolicy: "no-referrer"
+  });
   resp = await resp.json()
-  if(resp['status']!=0){
-    isRunning.value=false;
+  if (resp['status'] != 0) {
+    isRunning.value = false;
     return
   }
   solvedRunUrl = resp['url']
 }
+
 watch(isRunning, async (newState, oldState) => {
   clearChart()
   if (newState) {
     state.isChecking = true
     await apiSolver()
     state.isChecking = false
-    if(!isRunning.value) return
+    if (!isRunning.value) return
     if (state.maxUse && state.bytesUsed >= state.maxUse) {
       state.bytesUsed = 0;
       state.logged = 0;
@@ -419,7 +451,7 @@ watch(isRunning, async (newState, oldState) => {
     state.startTime = new Date().getTime() / 1000;
     state.recordUse = state.bytesUsed
     state.recordTime = new Date().getTime() / 1000;
-    for (let i = 0; i < threadNum.value; i++)startThread(i)
+    for (let i = 0; i < threadNum.value; i++) startThread(i)
     tasks.push(setInterval(frameEvent, 16))
     tasks.push(setInterval(uploadLog, 60000))
     tasks.push(setInterval(apiSolver, 60000))
@@ -442,30 +474,30 @@ watch(isRunning, async (newState, oldState) => {
 })
 
 async function uploadLog() {
-  let now = new Date().getTime() / 1000
+  /*let now = new Date().getTime() / 1000
   let num = state.bytesUsed - state.logged
   let time = now - state.lastLogTime
 
   state.logged = state.bytesUsed
   state.lastLogTime = now
   // if (loginInfo.AccessToken) {
-    let resp = await fetch(import.meta.env.VITE_API_URL+"log", {
-      method: "POST",
-      mode: "cors",
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify({
-        AccessToken: loginInfo.AccessToken,
-        url: runUrl.value,
-        threadNum: threadNum.value,
-        used: num,
-        time: time
-      })
-    });
-    resp = await resp.json()
-    if (resp.status == -1) {
-      loginInfo.AccessToken = ''
-    }
+  let resp = await fetch(import.meta.env.VITE_API_URL + "log", {
+    method: "POST",
+    mode: "cors",
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify({
+      AccessToken: loginInfo.AccessToken,
+      url: runUrl.value,
+      threadNum: threadNum.value,
+      used: num,
+      time: time
+    })
+  });
+  resp = await resp.json()
+  if (resp.status == -1) {
+    loginInfo.AccessToken = ''
+  }*/
   // }
 }
 
@@ -478,7 +510,7 @@ watch(props, async (newState, oldState) => {
 watch(threadNum, async (newState, oldState) => {
   localStorage.threadNum = newState
   if (isRunning.value && newState > oldState) {
-    for (let i = oldState; i < newState; i++)startThread(i)
+    for (let i = oldState; i < newState; i++) startThread(i)
   }
 })
 
@@ -517,19 +549,19 @@ const copyUrl = () => {
 }
 
 window.addEventListener("paste", function (e) {
-  if (!(e.clipboardData && e.clipboardData.items && document.activeElement?.nodeName != 'INPUT'))return;
+  if (!(e.clipboardData && e.clipboardData.items && document.activeElement?.nodeName != 'INPUT')) return;
   for (var i = 0, len = e.clipboardData.items.length; i < len; i++) {
     var itemz = e.clipboardData.items[i];
     if (itemz.type === "text/plain") {
-      e.clipboardData.items[i].getAsString(async function (str){
+      e.clipboardData.items[i].getAsString(async function (str) {
         let clipText = urlParser(str)
         if (clipText) {
           ElMessage.info('读取剪切板链接成功,正在检测链接可用性')
-          let ret=await checkUrl(clipText)
-          if(ret.status){
+          let ret = await checkUrl(clipText)
+          if (ret.status) {
             runUrl.value = clipText
             ElMessage.success('读取剪切板链接成功')
-          }else{
+          } else {
             ElMessage.error(ret.info)
           }
         } else {
@@ -591,8 +623,8 @@ var secEvent = () => {
 
 function formatter(num: number, desIndex: number, flo: Array<number>) {
   const describeString = [['B', 'KB', 'MB', 'GB', 'TB', 'PB'],
-  ['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s'],
-  ['Bps', 'Kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps']
+    ['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s'],
+    ['Bps', 'Kbps', 'Mbps', 'Gbps', 'Tbps', 'Pbps']
   ]
   const describe = describeString[desIndex]
   var cnum = num;
@@ -605,24 +637,24 @@ function formatter(num: number, desIndex: number, flo: Array<number>) {
   return cnum.toFixed(flo[total_index]) + describe[total_index];
 }
 
-const speedCtr=()=>{
-  if(state.bytesUsed-state.recordUse>state.maxSpeed/8){
-    return new Promise((resolve)=>{
-      setTimeout(()=>{
+const speedCtr = () => {
+  if (state.bytesUsed - state.recordUse > state.maxSpeed / 8) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
         resolve(0)
-      },1000-(new Date().getTime()%1000))
+      }, 1000 - (new Date().getTime() % 1000))
     })
   }
 }
 
 async function startThread(index: number) {
   try {
-    if(solvedRunUrl==""){
-      isRunning.value=false
+    if (solvedRunUrl == "") {
+      isRunning.value = false
       return
     }
-    let _url=solvedRunUrl
-    const response = await fetch(_url, { cache: "no-store", mode: 'cors', referrerPolicy: 'no-referrer' })
+    let _url = solvedRunUrl
+    const response = await fetch(_url, {cache: "no-store", mode: 'cors', referrerPolicy: 'no-referrer'})
     if (!response.body) throw "Nobody"
     let contentLength = response.headers.get('content-length')
     let realLength = Infinity
@@ -630,8 +662,8 @@ async function startThread(index: number) {
     const reader = response.body.getReader();
     let decodeLength = 0
     while (true) {
-      if(state.maxSpeed)await speedCtr()
-      const { value } = await reader.read();
+      if (state.maxSpeed) await speedCtr()
+      const {value} = await reader.read();
       let chunkLength = value?.length
       if (!chunkLength || solvedRunUrl != _url) {
         startThread(index);
@@ -722,7 +754,7 @@ const maxSpeedInput: Ref<{
 
 const editSpeedUse = () => {
   var map = {
-    "Kbps": 1024 ,
+    "Kbps": 1024,
     "Mbps": 1024 * 1024,
     "Gbps": 1024 * 1024 * 1024
   }
@@ -742,14 +774,16 @@ var isIOS = /iPhone|Macintosh/i.test(navigator.userAgent)
 const audioDom: Ref<any> = ref(null);
 
 
-import { onMounted, onUnmounted } from 'vue';
+import {onMounted, onUnmounted} from 'vue';
 import * as echarts from 'echarts';
 
 const chartContainer = ref(null);
 
 let myChart: EChartsType;
-let updateChart = (n:number) => {};
-let clearChart=()=>{};
+let updateChart = (n: number) => {
+};
+let clearChart = () => {
+};
 onMounted(() => {
   myChart = echarts.init(chartContainer.value);
   const chartOption = {
@@ -776,8 +810,8 @@ onMounted(() => {
       axisLabel: {
         show: false
       },
-      axisTick:{
-        show:false
+      axisTick: {
+        show: false
       }
     },
     yAxis: {
@@ -796,7 +830,7 @@ onMounted(() => {
         smooth: false,
         symbol: 'none',
         areaStyle: {},
-        data: [[new Date().getTime() / 1000,0]]
+        data: [[new Date().getTime() / 1000, 0]]
       }
     ],
     grid: {
@@ -809,40 +843,42 @@ onMounted(() => {
   }
 
   myChart.setOption(chartOption);
-  let showArray:Array<any>=[]
-  let speedTemp:Array<number>=[]
-  let stepLength=1
-  clearChart=()=>{
+  let showArray: Array<any> = []
+  let speedTemp: Array<number> = []
+  let stepLength = 1
+  clearChart = () => {
     // showArray=[]
-    speedTemp=[]
-    showArray.push([new Date().getTime() / 1000,0])
+    speedTemp = []
+    showArray.push([new Date().getTime() / 1000, 0])
     // stepLength=1
   }
-  updateChart = (speed:number) => {
-    let refresh=false
+  updateChart = (speed: number) => {
+    let refresh = false
     speedTemp.push(speed)
-    while(speedTemp.length>=stepLength){
-      refresh=true
+    while (speedTemp.length >= stepLength) {
+      refresh = true
       var tmp = speedTemp.splice(0, stepLength);
       let avg;
-      if(tmp.includes(0))avg=0
-      else avg = tmp.reduce((a, b) => a + b,0)/stepLength;
-      showArray.push([new Date().getTime() / 1000,avg])
+      if (tmp.includes(0)) avg = 0
+      else avg = tmp.reduce((a, b) => a + b, 0) / stepLength;
+      showArray.push([new Date().getTime() / 1000, avg])
     }
-    while(showArray.length>=200){
-      refresh=true
+    while (showArray.length >= 200) {
+      refresh = true
       const result = [];
       const lengthToProcess = showArray.length % 2 === 0 ? showArray.length : showArray.length - 1;
       for (let i = 0; i < lengthToProcess; i += 2) {
-        result.push([showArray[i][0],(showArray[i][1] + showArray[i + 1][1]) / 2]);
+        result.push([showArray[i][0], (showArray[i][1] + showArray[i + 1][1]) / 2]);
       }
-      showArray=result
-      stepLength*=2
+      showArray = result
+      stepLength *= 2
     }
     chartOption.series[0].data = showArray
-    if(chartShow.value && refresh)myChart.setOption(chartOption);
+    if (chartShow.value && refresh) myChart.setOption(chartOption);
   }
-  window.addEventListener('resize', () => { myChart.resize() });
+  window.addEventListener('resize', () => {
+    myChart.resize()
+  });
 });
 
 onUnmounted(() => {
@@ -857,20 +893,21 @@ onUnmounted(() => {
   margin-top: 10px;
 }
 
-.card{
+.card {
   max-width: 800px;
-  height:fit-content;
+  height: fit-content;
   display: block;
-  margin:0 auto;
-  background-color:#ffffff;
-  padding:2%
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 2%
 }
 
 @media (prefers-color-scheme: dark) {
-    .card {
-        background-color:rgb(18,18,18);
-    }
+  .card {
+    background-color: rgb(18, 18, 18);
+  }
 }
+
 @media screen and (max-width: 800px) {
   .ItemContainer {
     column-count: 1;
@@ -890,7 +927,7 @@ onUnmounted(() => {
   font-size: 30px;
 }
 
-.font-background{
+.font-background {
   color: #344357;
   font-size: 14px;
 }
@@ -902,45 +939,50 @@ onUnmounted(() => {
   margin-top: -10px;
   width: 40px;
   height: 20px;
-  color: rgb(96,98,102);
+  color: rgb(96, 98, 102);
 }
 
-.state-icon-main{
-  color: rgb(9,194,222);
+.state-icon-main {
+  color: rgb(9, 194, 222);
 }
 
-.svg-icon{
-  fill:rgb(255,255,255);
+.svg-icon {
+  fill: rgb(255, 255, 255);
   width: 50px;
   margin-left: 10px;
   margin-top: -30px;
 }
 
-.el-select-dropdown__wrap{
+.el-select-dropdown__wrap {
   max-height: 60vh;
 }
-.el-icon-loading{
+
+.el-icon-loading {
   margin-top: 40px;
-  color:rgb(255,255,255);
-}
-@media (prefers-color-scheme: dark) {
-    .showItem {
-      border: 1px solid rgb(61,63,66) !important;
-    }
-    .state-icon{
-      color: rgb(165,167,172);
-    }
-    .state-icon-main{
-      color: rgb(30,105,131);
-    }
-    .font-background{
-        color: rgb(193,206,230);
-    }
-    .svg-icon{
-      fill:rgb(220,220,220);
-    }
+  color: rgb(255, 255, 255);
 }
 
+@media (prefers-color-scheme: dark) {
+  .showItem {
+    border: 1px solid rgb(61, 63, 66) !important;
+  }
+
+  .state-icon {
+    color: rgb(165, 167, 172);
+  }
+
+  .state-icon-main {
+    color: rgb(30, 105, 131);
+  }
+
+  .font-background {
+    color: rgb(193, 206, 230);
+  }
+
+  .svg-icon {
+    fill: rgb(220, 220, 220);
+  }
+}
 
 
 .button {

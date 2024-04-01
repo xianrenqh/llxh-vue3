@@ -1,7 +1,6 @@
 {
   "\uD83D\uDC47\uD83D\uDC47  中国移动 \uD83D\uDC47\uD83D\uDC47": {
     "咪咕快游[高速]": "https://freeserver.migufun.com/resource/beta/apk/20231114094513/MiguPlay-V3.69.1.1_miguzsj.apk",
-    "咪咕音乐": "https://d.musicapp.migu.cn/upload/fbpt_rsync_apps/local/signed/MobileMusic7413/MobileMusic7413_014000D.apk",
     "咪咕视频": "https://img.cmvideo.cn/publish/noms/2023/12/06/1O4SHFIFR36BD.gif",
     "咪咕快游2": "https://h5cdn.migufun.com/middleh5/_nuxt/643447d.js"
   },
@@ -31,7 +30,7 @@
     "腾讯游戏-静态资源加速1": "https://game.gtimg.cn/images/nz/web202106/index/bc_part1.gif?0.3190485611376561",
     "京东商城图片CDN服务": "https://img10.360buyimg.com/live/jfs/t1/128947/12/26918/1361527/6260e71bE0ee85af5/ecaa17ea8dd3dddb.jpg",
     "逆水寒客户端": "https://nsh.gdl.netease.com/NGP/NGP_NSH_2.0.81143.exe",
-    "VIVO官网静态资源":"https://wwwstatic.vivo.com.cn/vivoportal/files/resource/funtouch/1651200648928/images/os2-jude-video.mp4",
+    "VIVO官网静态资源": "https://wwwstatic.vivo.com.cn/vivoportal/files/resource/funtouch/1651200648928/images/os2-jude-video.mp4",
     "华为P60-pro素材": "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/p60-pro/images/camera/huawei-p60-pro-camera-ui.mp4",
     "七牛云": "https://dn-lego-static.qbox.me/1711017492-24_newyear_act_banner.jpg"
   },
