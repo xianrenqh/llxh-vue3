@@ -1,0 +1,47 @@
+{
+  "\uD83D\uDC47\uD83D\uDC47  中国移动 \uD83D\uDC47\uD83D\uDC47": {
+    "咪咕快游[高速]": "https://freeserver.migufun.com/resource/beta/apk/20231114094513/MiguPlay-V3.69.1.1_miguzsj.apk",
+    "咪咕音乐": "https://d.musicapp.migu.cn/upload/fbpt_rsync_apps/local/signed/MobileMusic7413/MobileMusic7413_014000D.apk",
+    "咪咕视频": "https://img.cmvideo.cn/publish/noms/2023/12/06/1O4SHFIFR36BD.gif",
+    "咪咕快游2": "https://h5cdn.migufun.com/middleh5/_nuxt/643447d.js"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  中国电信 \uD83D\uDC47\uD83D\uDC47": {
+    "电信测速": "https://vipspeedtest8.wuhan.net.cn:8080/download?size=1073741824",
+    "天翼云1": "https://desk.ctyun.cn/desktop/software/clientsoftware/download/5961fa22ee369eba433da6b0247eb11f",
+    "天翼云2": "https://desk.ctyun.cn:8999/desktop-prod/software/android_client/20/64/102010101/clouddesktoc_phone_2.1.1_452_prod_102010101_2.1.1_signed.apk",
+    "天翼云3-翼加密客户端": "https://desk.ctyun.cn/desktop/software/clientsoftware/download/50218cd4d2286623049e374061cffd0e",
+    "天翼云-应用市场": "https://desk.ctyun.cn/desktop/software/clientsoftware/download/ff3e71dcc21152307f54700c62e5aef6"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  中国联通 \uD83D\uDC47\uD83D\uDC47": {
+    "和彩云": "https://img.mcloud.139.com/material_prod/material_media/20221128/1669626861087.png",
+    "联通电视": "NetworkPanelApi://listen.10155.com",
+    "联通官网静态资源1": "https://m1.ad.10010.com/small_video/uploadImg/1669798519261.png"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  字节跳动 \uD83D\uDC47\uD83D\uDC47": {
+    "字节CDN资源": "https://lf9-cdn-tos.bytecdntp.com/cdn/yuntu-index/1.0.4/case/maiteng/detailbg.png",
+    "字节CDN资源2": "https://lf9-apk.ugapk.cn/package/apk/bgame/1593_112/bgame_operation_update_2508_v1593_112_63aa_1693882489.apk?v=1693882509",
+    "抖音Win客户端": "https://www.douyin.com/download/pc/obj/douyin-pc-client/7044145585217083655/releases/11259813/3.0.1/win32-ia32/douyin-downloader-v3.0.1-win32-ia32-douyinDownload1.exe"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  阿里系\uD83D\uDC47\uD83D\uDC47  ": {
+    "阿里图片CDN域名加速": "https://img.alicdn.com/imgextra/i1/O1CN01xA4P9S1JsW2WEg0e1_!!6000000001084-2-tps-2880-560.png",
+    "支付宝开放平台": "https://mdn.alipayobjects.com/ind_developertool/afts/file/A*fSAmSbgxLosAAAAAAAAAAAAADlx-AQ?af_fileName=AlipayKeyTool-2.0.3.dmg"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  其他服务商\uD83D\uDC47\uD83D\uDC47  ": {
+    "量子密信": "https://im.zdxlz.com/downloadmi/file-im-sdk/apk/mobile/%E9%87%8F%E5%AD%90%E5%AF%86%E4%BF%A1.apk",
+    "腾讯游戏-静态资源加速1": "https://game.gtimg.cn/images/nz/web202106/index/bc_part1.gif?0.3190485611376561",
+    "京东商城图片CDN服务": "https://img10.360buyimg.com/live/jfs/t1/128947/12/26918/1361527/6260e71bE0ee85af5/ecaa17ea8dd3dddb.jpg",
+    "逆水寒客户端": "https://nsh.gdl.netease.com/NGP/NGP_NSH_2.0.81143.exe",
+    "VIVO官网静态资源":"https://wwwstatic.vivo.com.cn/vivoportal/files/resource/funtouch/1651200648928/images/os2-jude-video.mp4",
+    "华为P60-pro素材": "https://consumer-img.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/p60-pro/images/camera/huawei-p60-pro-camera-ui.mp4",
+    "七牛云": "https://dn-lego-static.qbox.me/1711017492-24_newyear_act_banner.jpg"
+  },
+  "\uD83D\uDC47\uD83D\uDC47  全球[Global]\uD83D\uDC47\uD83D\uDC47  ": {
+    "Cachefly": "https://web1.cachefly.net/speedtest/downloading",
+    "Cloudflare": "https://speed.cloudflare.com/__down?bytes=104857600",
+    "jsDelivr": "https://cdn.jsdelivr.net/gh/ljxi/CDN-IP-test@main/dump",
+    "Cloudflare Workers": "https://gh.con.sh/https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/download/v2.21.12/Waifu2x-Extension-GUI-v2.21.12-Portable.7z",
+    "Steam Akamai": "https://cdn.akamai.steamstatic.com/steam/apps/1063730/extras/NW_Sword_Sorcery_2.gif",
+    "Steam Cloudflare": "https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/extras/NW_Sword_Sorcery_2.gif",
+    "Microsoft Akamai": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RW16Ptm"
+  }
+}
